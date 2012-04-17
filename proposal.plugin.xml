@@ -3,7 +3,7 @@
 	<name>Proposal</name>
 	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
 	<author url="http://asymptomatic.net/">Owen Winkler</author>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<url>http://habariproject.org/</url>
 	<description><![CDATA[Add a proposal post type.]]></description>
 	<copyright>2012</copyright>
