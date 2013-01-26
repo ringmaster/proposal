@@ -77,6 +77,30 @@ class ProposalPlugin extends Plugin
 		return $staff;
 	}
 
+	public function filter_url_args($args, $post) {
+		if($post instanceof Post && $post->typename == 'proposal') {
+			$client = Post::get(array('id' => $post->info->client_slug));
+			$args['client_slug'] = $client->slug;
+		}
+		return $args;
+	}
+
+	public function filter_default_rewrite_rules( $rules ) {
+
+		$rules[] = array(
+			'name'			=>	'display_proposal',
+			'parse_regex'	=>	'%^(?P<client_slug>.+?)/(?P<slug>.+?)/?$%i',
+			'build_str'		=>	'{$client_slug}/{$slug}',
+			'handler'		=>	'UserThemeHandler',
+			'action'		=>	'display_post',
+			'priority'		=>	1,
+			'description'	=>	'Display Documents',
+			'parameters' => serialize( array( 'require_match' => array('Posts', 'rewrite_match_type'), 'content_type'=>'proposal') ),
+		);
+
+		return $rules;
+	}
+
 }
 
 ?>

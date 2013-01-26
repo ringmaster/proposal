@@ -7,7 +7,7 @@
 
 	<header>
 		<h2>Project Proposal</h2>
-		<h1><?php echo $content->title_out; ?></h1>
+		<h1><a href="<?php echo $content->permalink; ?>"><?php echo $content->title_out; ?></a></h1>
 
 		<section>
 			<b>Prepared For</b><br>
