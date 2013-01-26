@@ -8,5 +8,8 @@
 	<description><![CDATA[Add a proposal post type.]]></description>
 	<copyright>2012</copyright>
 	<guid>86a26d9c-a163-4569-8bce-e442cc6be971</guid>
+	<requires>
+		<feature>client</feature>
+	</requires>
 </pluggable>
  
