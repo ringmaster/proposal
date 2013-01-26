@@ -81,7 +81,8 @@ class ProposalPlugin extends Plugin
 
 	public function filter_url_args($args, $post) {
 		if($post instanceof Post && $post->typename == 'proposal') {
-			$client = Post::get(array('id' => $post->info->client_slug));
+			$client_user = User::get_by_id($post->info->client_contact);
+			$client = Post::get(array('id'=>$client_user->info->client));
 			$args['client_slug'] = $client->slug;
 		}
 		return $args;
@@ -96,7 +97,7 @@ class ProposalPlugin extends Plugin
 			'handler'		=>	'UserThemeHandler',
 			'action'		=>	'display_post',
 			'priority'		=>	1,
-			'description'	=>	'Display Documents',
+			'description'	=>	'Display Proposal',
 			'parameters' => serialize( array( 'require_match' => array('Posts', 'rewrite_match_type'), 'content_type'=>'proposal') ),
 		);
 
