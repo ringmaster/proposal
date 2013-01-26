@@ -1,7 +1,5 @@
 <?php
 
-namespace Habari;
-
 class ProposalPlugin extends Plugin
 {
 	public function action_plugin_activation( $plugin_file )
