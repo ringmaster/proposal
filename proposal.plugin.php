@@ -80,7 +80,7 @@ class ProposalPlugin extends Plugin
 	public function filter_url_args($args, $post) {
 		if($post instanceof Post && $post->typename == 'proposal') {
 			$client_user = User::get_by_id($post->info->client_contact);
-			$client = Post::get(array('id'=>$client_user->info->client));
+			$client = Post::get(array('id'=>$client_user->info->client, 'ignore_permissions'=>true));
 			$args['client_slug'] = $client->slug;
 		}
 		return $args;
